@@ -27,7 +27,7 @@ RUN addgroup -g 1001 -S nginx && \
     adduser -S -D -H -u 1001 -h /var/cache/nginx -s /sbin/nologin -G nginx nginx 2>/dev/null || true
 
 # Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 # Copy built application from builder stage
 COPY --from=builder /build/dist /usr/share/nginx/html
